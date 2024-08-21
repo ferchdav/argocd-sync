@@ -1,0 +1,19 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: tests-e2e-job
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+spec:
+  template:
+    spec:
+      containers:
+        - name: tests-e2e-job
+          image: ubuntu     
+          command: 
+            - /bin/bash
+            - -c
+            - |
+              echo "Running in Post-Sync"
+      restartPolicy: Never

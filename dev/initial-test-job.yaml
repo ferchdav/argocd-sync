@@ -1,0 +1,19 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: initial-tests-job
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+spec:
+  template:
+    spec:
+      containers:
+        - name: initial-tests-job
+          image: ubuntu     
+          command: 
+            - /bin/bash
+            - -c
+            - |
+              echo "Running in pre-sync"
+      restartPolicy: Never
