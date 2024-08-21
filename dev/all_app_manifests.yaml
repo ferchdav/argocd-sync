@@ -2,20 +2,20 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  generateName: presync-job
+  generateName: initial-tests-job
   annotations:
     argocd.argoproj.io/hook: PreSync
 spec:
   template:
     spec:
       containers:
-        - name: presync-job
+        - name: initial-tests-job
           image: ubuntu     
           command: 
             - /bin/bash
             - -c
             - |
-              echo "This is pre-sync"
+              echo "Running in pre-sync"
       restartPolicy: Never
 ---
 apiVersion: apps/v1
@@ -89,18 +89,18 @@ spec:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: postsync-job
+  name: test-e2e-job
   annotations:
     argocd.argoproj.io/hook: PostSync
 spec:
   template:
     spec:
       containers:
-        - name: postsync-job-success
+        - name: test-e2e-job-success
           image: ubuntu     
           command: 
             - /bin/bash
             - -c
             - |
-              echo "This is Post-Sync"
+              echo "Running in Post-Sync"
       restartPolicy: Never
