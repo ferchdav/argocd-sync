@@ -1,0 +1,2 @@
+# argocd-sync
+argocd-sync
