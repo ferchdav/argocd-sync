@@ -21,16 +21,18 @@ spec:
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: backend
+  name: db
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"  
 spec:
   replicas: 1
   selector:
     matchLabels:
-      tier: backend
+      tier: db
   template:
     metadata:
       labels:
-        tier: backend
+        tier: db
     spec:
       containers:
         - name: main
@@ -39,10 +41,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend
+  name: db
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"  
 spec:
   selector:
-    tier: backend
+    tier: db
   ports:
     - protocol: TCP
       port: 8080
@@ -51,18 +55,18 @@ spec:
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: frontend
+  name: ui
   annotations:
     argocd.argoproj.io/sync-wave: "2"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      tier: frontend
+      tier: ui
   template:
     metadata:
       labels:
-        tier: frontend
+        tier: ui
     spec:
       containers:
         - name: main
@@ -71,12 +75,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend
+  name: ui
   annotations:
     argocd.argoproj.io/sync-wave: "2"
 spec:
   selector:
-    tier: frontend
+    tier: ui
   ports:
     - protocol: TCP
       port: 80
