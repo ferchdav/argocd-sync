@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-resourcehook-poc
+  name: argocd-resrc-hook-poc
   namespace: argocd
 spec:
   project: default
