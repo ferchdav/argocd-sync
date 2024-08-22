@@ -1,0 +1,20 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: tests-e2e-job
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+spec:
+  template:
+    spec:
+      containers:
+        - name: tests-e2e-job
+          image: ubuntu     
+          command: 
+            - /bin/bash
+            - -c
+            - |
+              echo "Running in Post-Sync"
+              curl -X POST -u admin:11280883f61893641860e5615e42739ea0 http://127.0.0.1:8080/job/Hello_Fer/build               
+      restartPolicy: Never
