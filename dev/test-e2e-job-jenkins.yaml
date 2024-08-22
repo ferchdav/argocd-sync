@@ -9,12 +9,13 @@ spec:
   template:
     spec:
       containers:
-        - name: tests-e2e-job
-          image: ubuntu     
+        - name: tests-e2e-job-jenkins
+          image: ubuntu  
           command: 
             - /bin/bash
             - -c
             - |
+              apt-get update && apt-get install -y curl
               echo "Running in Post-Sync"
               curl -X POST -u admin:11280883f61893641860e5615e42739ea0 http://127.0.0.1:8080/job/Hello_Fer/build               
       restartPolicy: Never
