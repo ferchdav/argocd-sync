@@ -16,6 +16,6 @@ spec:
             - -c
             - |
               echo "Running in Post-Sync"
-              apt-get install -y curl
+              apt-get update && apt-get install -y curl
               curl -V
       restartPolicy: Never
