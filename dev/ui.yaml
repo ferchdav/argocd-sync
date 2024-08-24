@@ -21,8 +21,8 @@ spec:
           image: ubuntu  
           command:  [ "/bin/bash", "-c", "--" ]
           args: [ "while true; do sleep 60; done;" ]
-        - name: main
-          image: nginx:latest
+        # - name: main
+        #   image: nginx:latest
 ---
 apiVersion: v1
 kind: Service
