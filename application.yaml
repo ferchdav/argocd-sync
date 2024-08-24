@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-restart-hook-poc-4
+  name: argocd-restart-hook-poc-5
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io/background
