@@ -17,13 +17,12 @@ spec:
         tier: db
     spec:
       containers:
+        - name: wait-for
+          image: ubuntu  
+          command:  [ "/bin/bash", "-c", "--" ]
+          args: [ "while true; do sleep 10; done;" ]
         - name: main
           image: nginx:latest
-          command: 
-            - /bin/bash
-            - -c
-            - |
-              echo "Running db installation"
 ---
 apiVersion: v1
 kind: Service
