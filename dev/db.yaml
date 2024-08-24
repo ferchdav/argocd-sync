@@ -16,13 +16,8 @@ spec:
         tier: db
     spec:
       containers:
-      - image: ubuntu
-        command:
-          - "sleep"
-          - "30"
-        imagePullPolicy: IfNotPresent
-        name: ubuntu
-      restartPolicy: Always
+        - name: main
+          image: nginx:latest
 ---
 apiVersion: v1
 kind: Service
@@ -37,28 +32,3 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
-# ---
-# apiVersion: apps/v1
-# # kind: ReplicaSet
-# kind: Deployment
-# metadata:
-#   name: db
-#   annotations:
-#     argocd.argoproj.io/sync-wave: "1"  
-# spec:
-#   replicas: 1
-#   selector:
-#     matchLabels:
-#       tier: db
-#   template:
-#     metadata:
-#       labels:
-#         tier: db
-#     spec:
-#       containers:
-#         - name: wait-for
-#           image: ubuntu  
-#           command:  [ "/bin/bash", "-c", "--" ]
-#           args: [ "while true; do sleep 60; done;" ]
-#         - name: main
-#           image: nginx:latest
