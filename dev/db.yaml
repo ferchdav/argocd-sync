@@ -19,6 +19,11 @@ spec:
       containers:
         - name: main
           image: nginx:latest
+          command: 
+            - /bin/bash
+            - -c
+            - |
+              echo "Running db installation"
 ---
 apiVersion: v1
 kind: Service
