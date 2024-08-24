@@ -4,7 +4,8 @@ metadata:
   name: argocd-resrc-hook-poc
   namespace: argocd
   finalizers:
-    - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io/background
+    # - resources-finalizer.argocd.argoproj.io/foreground
     # - resources-finalizer.argocd.argoproj.io/background
 spec:
   project: default

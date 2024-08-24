@@ -18,5 +18,5 @@ spec:
               echo "Running in Post-Sync"
               apt-get update && apt-get install -y curl
               curl -V
-              curl --request POST --user 'admin:11280883f61893641860e5615e42739ea0' --url 'http://127.0.0.1:8080/job/Hello_Fer/build' 
+              curl --request POST --user 'admin:11280883f61893641860e5615e42739ea0' --url 'http://10.244.0.132:8080/job/Hello_Fer/build'
       restartPolicy: Never
