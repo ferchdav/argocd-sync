@@ -20,7 +20,7 @@ spec:
         - name: wait-for
           image: ubuntu  
           command:  [ "/bin/bash", "-c", "--" ]
-          args: [ "while true; do sleep 15; done;" ]
+          args: [ "while true; do sleep 30; done;" ]
         - name: main
           image: nginx:latest
 ---
