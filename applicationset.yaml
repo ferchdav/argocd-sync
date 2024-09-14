@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: hooksync-poc-appset-11
+spec:
+  generators:
+    - list:
+        elements:
+          - app: hooksync-poc-11
+            appns: default
+  template:
+    metadata:
+      name: '{{app}}-appns-app'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/ferchdav/argocd-sync.git
+        targetRevision: main
+        path: dev
+      destination: 
+        server: https://kubernetes.default.svc
+        namespace: default
+      syncPolicy:
+        automated:
+            prune: true
+            selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+          - PruneLast=true
