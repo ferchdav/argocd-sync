@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-rollouts
+  name: nginx-rollouts-canary
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io/background
@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/ferchdav/argocd-sync.git
     targetRevision: main
-    path: nginx-rollouts
+    path: nginx-rollouts-canary
   destination: 
     server: https://kubernetes.default.svc
     namespace: argo-rollouts-eg
