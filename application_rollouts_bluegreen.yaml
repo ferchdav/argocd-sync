@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-rollouts-bluegreen
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io/background
+    # - resources-finalizer.argocd.argoproj.io/foreground
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ferchdav/argocd-sync.git
+    targetRevision: main
+    path: nginx-rollouts-bluegreen
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: argo-rollouts-eg-bluegreen
+  syncPolicy:
+    automated:
+        prune: true
+        selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=true
