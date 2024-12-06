@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: rollouts-bluegreen-svcs
+  name: rollouts-canary-svcs
 spec:
   generators:
     - list:
@@ -9,16 +9,16 @@ spec:
           - app: xxx
   template:
     metadata:
-      name: rollouts-bluegreen-svcs
+      name: rollouts-canary-svcs
     spec:
       project: default
       source:
         repoURL: https://github.com/ferchdav/argocd-sync.git
         targetRevision: main
-        path: 03_rollouts_bluegreen_svcs
+        path: 04_rollouts_canary_svcs
       destination: 
         server: https://kubernetes.default.svc
-        namespace: argo-rollouts-eg-bluegreen-svcs
+        namespace: argo-rollouts-eg
       syncPolicy:
         automated:
           selfHeal: true
