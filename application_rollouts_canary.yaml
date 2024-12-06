@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/ferchdav/argocd-sync.git
     targetRevision: main
-    path: nginx-rollouts-canary
+    path: 01_rollouts_canary_nginx
   destination: 
     server: https://kubernetes.default.svc
     namespace: argo-rollouts-eg
