@@ -15,7 +15,7 @@ spec:
       source:
         repoURL: https://github.com/ferchdav/argocd-sync.git
         targetRevision: main
-        path: 03_rollouts_bluegreen_svcs
+        path: 03_rollouts_bluegreen_svcs_1
       destination: 
         server: https://kubernetes.default.svc
         namespace: argo-rollouts-eg
