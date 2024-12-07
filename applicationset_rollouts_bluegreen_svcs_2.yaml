@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: rollouts-bluegreen-svcs
+spec:
+  generators:
+    - list:
+        elements:
+          - app: xxx
+  template:
+    metadata:
+      name: rollouts-bluegreen-svcs
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/ferchdav/argocd-sync.git
+        targetRevision: main
+        path: 05_rollouts_bluegreen_svcs_2
+      destination: 
+        server: https://kubernetes.default.svc
+        namespace: argo-rollouts-eg
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
+          - PruneLast=true
