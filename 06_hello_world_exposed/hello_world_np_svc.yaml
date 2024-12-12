@@ -11,5 +11,6 @@ spec:
     tier: web
   ports:
     - protocol: TCP
-      port: 80
       targetPort: 8080
+      port: 90
+      nodePort: 30666
