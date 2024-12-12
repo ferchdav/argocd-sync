@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: ingress-exposed-hw-appset
+  name: hello-world-exposed-appset
 spec:
   generators:
     - list:
@@ -15,7 +15,7 @@ spec:
       source:
         repoURL: https://github.com/ferchdav/argocd-sync.git
         targetRevision: main
-        path: 06_ingress_exposed
+        path: 06_hello_world_exposed
       destination: 
         server: https://kubernetes.default.svc
         namespace: argo-rollouts-eg
