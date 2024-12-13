@@ -10,7 +10,7 @@ spec:
     - protocol: TCP
       targetPort: 8080
       port: 90
-      nodePort: 30666
+      nodePort: 30666     # 53536
 ---
 kind: Service
 apiVersion: v1
@@ -24,4 +24,4 @@ spec:
     - protocol: TCP
       targetPort: 8080
       port: 91
-      nodePort: 30667
+      nodePort: 30667     # 53548
