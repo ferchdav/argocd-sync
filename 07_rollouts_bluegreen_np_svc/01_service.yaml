@@ -11,17 +11,17 @@ spec:
       targetPort: 8080
       port: 90
       nodePort: 30666
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: rollout-bluegreen-preview
-spec:
-  type: NodePort
-  selector:
-    app: rollout-bluegreen
-  ports:
-    - protocol: TCP
-      targetPort: 8080
-      port: 91
-      nodePort: 30667
+# ---
+# kind: Service
+# apiVersion: v1
+# metadata:
+#   name: rollout-bluegreen-preview
+# spec:
+#   type: NodePort
+#   selector:
+#     app: rollout-bluegreen
+#   ports:
+#     - protocol: TCP
+#       targetPort: 8080
+#       port: 91
+#       nodePort: 30667
