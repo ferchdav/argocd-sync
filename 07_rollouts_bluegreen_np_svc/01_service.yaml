@@ -7,10 +7,10 @@ spec:
   selector:
     app: rollout-bluegreen
   ports:
-  - protocol: TCP
-    targetPort: 8080
-    port: 90
-    nodePort: 30666
+    - protocol: TCP
+      targetPort: 8080
+      port: 90
+      nodePort: 30666
 ---
 kind: Service
 apiVersion: v1
@@ -21,7 +21,7 @@ spec:
   selector:
     app: rollout-bluegreen
   ports:
-- protocol: TCP
-    targetPort: 8080
-    port: 90
-    nodePort: 30666
+    - protocol: TCP
+      targetPort: 8080
+      port: 90
+      nodePort: 30666
