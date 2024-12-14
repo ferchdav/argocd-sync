@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: hello-world-np-exposed-appset           # rollouts-bluegreen-demo-appset
+  name: rollouts-bluegreen-demo-appset
 spec:
   generators:
     - list:
@@ -9,7 +9,7 @@ spec:
           - app: xxx
   template:
     metadata:
-      name: hello-world-np-exposed             # rollouts-bluegreen-demo-app
+      name: rollouts-bluegreen-demo-app
     spec:
       project: default
       source:
