@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: 09_ros_bg_cm_gen_appset
+  name: 09-ros-bg-cm-gen-appset
 spec:
   generators:
     - list:
@@ -9,7 +9,7 @@ spec:
           - app: xxx
   template:
     metadata:
-      name: 09_ros_bg_cm_gen_app
+      name: 09-ros-bg-cm-gen-app
     spec:
       project: default
       source:
