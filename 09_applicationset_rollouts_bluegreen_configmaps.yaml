@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: rollouts-bluegreen-configmaps-appset
+  name: example-rollouts-bluegreen-configmaps-gen-appset
 spec:
   generators:
     - list:
@@ -9,13 +9,13 @@ spec:
           - app: xxx
   template:
     metadata:
-      name: rollouts-bluegreen-configmaps-app
+      name: example-rollouts-bluegreen-configmaps-gen-app
     spec:
       project: default
       source:
         repoURL: https://github.com/ferchdav/argocd-sync.git
         targetRevision: main
-        path: 09_rollouts_bluegreen_configmaps
+        path: 09_rollouts_bluegreen_configmaps_gen
       destination: 
         server: https://kubernetes.default.svc
         namespace: argo-rollouts-eg
