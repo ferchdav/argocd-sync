@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: deb-tools
+  name: deb-tools
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deb-tools
+  template:
+    metadata:
+      labels:
+        app: deb-tools
+    spec:
+      containers:
+      - command: [ "/bin/bash", "-c", "--" ]
+        args: [ "while true; do sleep 30; done;" ]
+        image: google/cloud-sdk:489.0.0-stable       # us-docker.pkg.dev/iaas-gcr-reg-prd-ad3d/build/google/cloud-sdk:fer
+        imagePullPolicy: IfNotPresent
+        name: debian-tools
+        securityContext:
+          runAsUser: 1000
