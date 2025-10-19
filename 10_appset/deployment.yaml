@@ -9,12 +9,12 @@ spec:
   selector:
     matchLabels:
       app: deb-tools
-    fake:
-      fakeKey: fakeVal
   template:
     metadata:
       labels:
         app: deb-tools
+    fake:
+      fakeKey: fakeVal
     spec:
       containers:
       - command: [ "/bin/bash", "-c", "--" ]
