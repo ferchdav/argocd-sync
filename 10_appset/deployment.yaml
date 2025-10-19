@@ -8,12 +8,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: deb-tools
-    fakeVar: fakeVal      
+      app: fake-label-1 # deb-tools
   template:
     metadata:
       labels:
-        app: deb-tools
+        app: fake-label-2 # deb-tools
     spec:
       containers:
       - command: [ "/bin/bash", "-c", "--" ]
