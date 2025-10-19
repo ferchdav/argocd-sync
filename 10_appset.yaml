@@ -16,8 +16,9 @@ spec:
     spec:
       project: default
       source:
-        repoURL: file:///tmp/manifests
-        path: .
+        repoURL: https://github.com/ferchdav/argocd-sync.git
+        targetRevision: main
+        path: 10_appset
       destination:
         name: '{{server}}'
         namespace: '{{appns}}'
