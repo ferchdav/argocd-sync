@@ -14,6 +14,7 @@ spec:
       labels:
         app: deb-tools
     spec:
+      fakeVar: fakeVal
       containers:
       - command: [ "/bin/bash", "-c", "--" ]
         args: [ "while true; do sleep 30; done;" ]
