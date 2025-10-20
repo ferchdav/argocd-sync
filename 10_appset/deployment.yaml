@@ -6,7 +6,7 @@ metadata:
   name: deb-tools
 spec:
   replicas: 1
-  fakeField: "thisDoesNotExist"
+  # fakeField: "thisDoesNotExist"
   selector:
     matchLabels:
       app: deb-tools
