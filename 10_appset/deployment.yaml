@@ -14,8 +14,6 @@ spec:
     metadata:
       labels:
         app: deb-tools
-    fake:
-      fakeKey: fakeVal
     spec:
       containers:
       - command: [ "/bin/bash", "-c", "--" ]
